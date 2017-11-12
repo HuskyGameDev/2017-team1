@@ -1,1 +1,2 @@
-# 2017-team1
+# hgd-team1
+Github repository for HGD Team 1
