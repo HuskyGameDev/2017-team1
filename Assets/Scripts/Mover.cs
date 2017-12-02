@@ -7,11 +7,21 @@ using UnityEngine;
 
 public class Mover : MonoBehaviour
 {
-    public float speed;
 
+	public static float speed = 50f;
     private void Start()
     {
+
         //moves the arrow towards the player at a desired speed
         GetComponent<Rigidbody>().velocity = transform.up * speed;
     }
+
+	public static float getSpeed(){
+		return speed;
+	}
+
+	public static void setSpeed(float newSpeed){
+		speed = newSpeed;
+	}
+
 }

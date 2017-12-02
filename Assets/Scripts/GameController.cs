@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+
     public GameObject obstacle;
     public Vector3 spawnValues;
 //    public int obstacleCount;
@@ -62,7 +63,10 @@ public class GameController : MonoBehaviour
 		//Difficulty value shortens the time interval every time the score threshold is passed
 		if ((score % diffUpScore) == 0 && diffCheck == false && !(spawnWaitMax <= spawnWaitMin) ) {
 			diffCheck = true;
-			spawnWaitMax -= 0.1f;
+			spawnWaitMax -= 0.05f;
+//			Mover.Instance.setSpeed (Mover.Instance.getSpeed() + 5.0f);
+			Mover.setSpeed(Mover.getSpeed() + 20.0f);
+			Debug.Log ("Speed: " + Mover.getSpeed());
 		}
 
         //allows the player to restart by pressing the 'R' key after game over
@@ -71,6 +75,8 @@ public class GameController : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+				Mover.setSpeed (50f);
+				Debug.Log ("Speed: " + Mover.getSpeed());
             }
         }
 
@@ -84,6 +90,7 @@ public class GameController : MonoBehaviour
     {
         gameOverText.text = "Game Over";
         gameOver = true;
+
     }
 
 	//updates the score over time

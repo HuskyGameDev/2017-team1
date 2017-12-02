@@ -89,12 +89,12 @@ public class PlayerMotor : MonoBehaviour
         //Rotate the player in the direction he moves
 
         Vector3 dir = controller.velocity;
-        if(dir != Vector3.zero)
-        {
-            dir.y = 0;
-            transform.forward = Vector3.Lerp(transform.forward, dir, TURN_SPEED);
-        }
-        
+//        if(dir != Vector3.zero)
+//        {
+//            dir.y = 0;
+//            transform.forward = Vector3.Lerp(transform.forward, dir, TURN_SPEED);
+//        }
+//        
     }
 
     private void MoveLane(bool goingRight)
