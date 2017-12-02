@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         //allows the player to restart by pressing the 'R' key after game over
         if (restart)
         {
-            if (Input.GetKeyDown(KeyCode.R))
+			if (Input.GetKeyDown(KeyCode.R) || MobileInput.Instance.SwipeUp)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 				Mover.setSpeed (50f);
