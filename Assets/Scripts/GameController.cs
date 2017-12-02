@@ -11,26 +11,35 @@ public class GameController : MonoBehaviour
 {
     public GameObject obstacle;
     public Vector3 spawnValues;
-    public int obstacleCount;
-    public float spawnWait;
+//    public int obstacleCount;
+
+    public float spawnWaitMin;
+	public float spawnWaitMax;
+	public float spawnWait;
+
     public float startWait;
-    public float waveWait;
+//    public float waveWait;
 
     public Text gameOverText;
     public Text restartText;
 	public Text scoreText;
 
 	public int score;
-	public int timer;
+	public float timer;
+
+	public int diffUpScore;
 
     private bool gameOver;
     private bool restart;
+
 	private bool scoreCheck;
+	private bool diffCheck;
      
     private void Start()
     {
         gameOver = false;
         restart = false;
+
 
         gameOverText.text = "";
         restartText.text = ""; 
@@ -50,6 +59,11 @@ public class GameController : MonoBehaviour
 			UpdateScore ();
 		}
 
+		//Difficulty value shortens the time interval every time the score threshold is passed
+		if ((score % diffUpScore) == 0 && diffCheck == false && !(spawnWaitMax <= spawnWaitMin) ) {
+			diffCheck = true;
+			spawnWaitMax -= 0.1f;
+		}
 
         //allows the player to restart by pressing the 'R' key after game over
         if (restart)
@@ -77,8 +91,9 @@ public class GameController : MonoBehaviour
 	{
 		scoreCheck = true;
 		score++;
-		yield return new WaitForSeconds (0.2f);
+		yield return new WaitForSeconds (timer);
 		scoreCheck = false;
+		diffCheck = false;
 	}
 
 
@@ -91,8 +106,8 @@ public class GameController : MonoBehaviour
         while (true)
         {
             //each for loop spawns a wave of a set number of arrows
-            for (int i = 0; i < obstacleCount; i++)
-            {
+//            for (int i = 0; i < obstacleCount; i++)
+//            {
                 //Random variable is used in an if, elseif statement in order to have
                 //arrows spawn in one of three lanes; left, middle, and right.
                 float xrand = Random.Range(0, 6);
@@ -117,10 +132,15 @@ public class GameController : MonoBehaviour
                 Quaternion spawnRotation = Quaternion.identity;
                 spawnRotation[0] = -1;
                 Instantiate(obstacle, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(spawnWait);
-            }
+
+
+				//Allows arrows to spawn randomly within a time interval
+				spawnWait = Random.Range(spawnWaitMin, spawnWaitMax);
+				yield return new WaitForSeconds(spawnWait);
+
+//            }
             //wait after each for loop to allow time between waves of arrows. 
-            yield return new WaitForSeconds(waveWait);
+            //yield return new WaitForSeconds(waveWait);
 
             //breaks out of the wave spawning loop when gameOver is true
             if (gameOver)

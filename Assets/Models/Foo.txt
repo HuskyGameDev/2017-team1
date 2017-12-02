@@ -1,0 +1,1 @@
+Assets are to be stored here. Foo.

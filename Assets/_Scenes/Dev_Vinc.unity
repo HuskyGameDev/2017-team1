@@ -179,6 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 417609387}
   - component: {fileID: 417609386}
+  - component: {fileID: 417609388}
   m_Layer: 0
   m_Name: Game Controller
   m_TagString: GameController
@@ -199,15 +200,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstacle: {fileID: 1653769960592700, guid: 0c085ca2d27253f41aa0b920704a633d, type: 2}
   spawnValues: {x: 3, y: 0, z: 100}
-  obstacleCount: 5
-  spawnWait: 0.7
+  spawnWaitMin: 0.1
+  spawnWaitMax: 1
+  spawnWait: 0
   startWait: 1
-  waveWait: 1
   gameOverText: {fileID: 1605778175}
   restartText: {fileID: 1314712259}
   scoreText: {fileID: 1765206203}
   score: 0
-  timer: 0
+  timer: 0.5
+  diffUpScore: 50
 --- !u!4 &417609387
 Transform:
   m_ObjectHideFlags: 0
@@ -221,6 +223,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &417609388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 417609385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ad23550500b8244d9726b1a3db2ac9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &634511041
 Prefab:
   m_ObjectHideFlags: 0
@@ -859,7 +872,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1980709168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.65, z: -4.49}
+  m_LocalPosition: {x: 0, y: 3, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
