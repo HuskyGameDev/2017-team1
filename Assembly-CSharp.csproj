@@ -57,7 +57,7 @@
      <Compile Include="Assets\Scripts\MobileInput.cs" />
      <Compile Include="Assets\Scripts\Mover.cs" />
      <Compile Include="Assets\Scripts\PlayerMotor.cs" />
-     <Compile Include="Assets\Scripts\PlayerMotorPC.cs" />
+     <Compile Include="Assets\Scripts\PlayerMotorOld.cs" />
      <Compile Include="Assets\Scripts\QuitButton.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SelectButton.cs" />
