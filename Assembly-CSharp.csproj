@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{5F9B9EE0-3C60-038F-3F41-DA59D32D17E3}</ProjectGuid>
+    <ProjectGuid>{75CBB6BA-D2A5-A3F9-FF23-18AFA2432E6E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -61,6 +61,7 @@
      <Compile Include="Assets\Scripts\QuitButton.cs" />
      <Compile Include="Assets\Scripts\SceneLoader.cs" />
      <Compile Include="Assets\Scripts\SelectButton.cs" />
+     <Compile Include="Assets\Scripts\TerrainMover.cs" />
      <None Include="Assets\Models\Foo.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

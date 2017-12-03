@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
 
     public GameObject obstacle;
     public Vector3 spawnValues;
+
 //    public int obstacleCount;
 
     public float spawnWaitMin;
@@ -20,6 +21,10 @@ public class GameController : MonoBehaviour
 
     public float startWait;
 //    public float waveWait;
+
+    public float tSpawnWaitMin;
+    public float tSpawnWaitMax;
+    public float tSpawnWait;
 
     public Text gameOverText;
     public Text restartText;
@@ -35,7 +40,12 @@ public class GameController : MonoBehaviour
 
 	private bool scoreCheck;
 	private bool diffCheck;
-     
+
+    private GameObject terrain;
+
+    private Vector3 treeSpawnValues = new Vector3(8, -.75f, 250);
+    private Vector3 rockSpawnValues = new Vector3(8, .65f, 250);
+ 
     private void Start()
     {
         gameOver = false;
@@ -46,6 +56,7 @@ public class GameController : MonoBehaviour
         restartText.text = ""; 
 
         StartCoroutine(SpawnArrows());
+		StartCoroutine(SpawnTerrain());
 
 		score = 0;
 		UpdateScore ();
@@ -158,6 +169,50 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+	IEnumerator SpawnTerrain()
+	{
+		Vector3 spawnPosition;
+
+		while (true)
+		{
+			float xrand = Random.Range(0, 3);
+			int xVal;
+			if (xrand < 2) {
+				xVal = -1;
+			}
+			else {
+				xVal = 1;
+			}
+
+			Quaternion spawnRotation = Quaternion.identity;
+			spawnRotation[0] = -1;
+
+			string tText = "";
+
+			float trand = Random.Range(0, 4);
+			if (trand < 2) {
+				tText = "Terrain";
+				spawnPosition = new Vector3(xVal * treeSpawnValues.x, treeSpawnValues.y, treeSpawnValues.z);
+			} else {
+				tText = "Terrain1";
+				spawnPosition = new Vector3(xVal * rockSpawnValues.x, rockSpawnValues.y, rockSpawnValues.z);
+			}
+
+			terrain = GameObject.FindWithTag(tText);
+
+			Instantiate(terrain, spawnPosition, spawnRotation);
+
+			tSpawnWait = Random.Range(tSpawnWaitMin, tSpawnWaitMax);
+			yield return new WaitForSeconds(tSpawnWait);
+
+
+			if (gameOver)
+            {
+                break;
+            }
+		}
+	}
 
 	void UpdateScore ()
 	{
