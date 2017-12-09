@@ -13,6 +13,12 @@ public class TerrainMover : MonoBehaviour
 
         //moves the arrow towards the player at a desired speed
         GetComponent<Rigidbody>().velocity = transform.up * (Mover.getSpeed() - 20f) ;
-    } 
+    }
+
+    public void Update()
+    {
+    	if (GameController.gameOver)
+    		GetComponent<Rigidbody>().velocity = Vector3.zero;
+    }
 
 }

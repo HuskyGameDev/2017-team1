@@ -13,6 +13,9 @@ public class GameController : MonoBehaviour
     public GameObject obstacle;
     public Vector3 spawnValues;
 
+    public GameObject restartButton;
+    public GameObject mainMenuButton;
+
 //    public int obstacleCount;
 
     public float spawnWaitMin;
@@ -27,7 +30,6 @@ public class GameController : MonoBehaviour
     public float tSpawnWait;
 
     public Text gameOverText;
-    public Text restartText;
 	public Text scoreText;
 
 	public int score;
@@ -35,8 +37,10 @@ public class GameController : MonoBehaviour
 
 	public int diffUpScore;
 
-    private bool gameOver;
+    public static bool gameOver;
     private bool restart;
+
+    private string s = "_Scenes/mainmenu1";
 
 	private bool scoreCheck;
 	private bool diffCheck;
@@ -44,7 +48,7 @@ public class GameController : MonoBehaviour
     private GameObject terrain;
 
     private Vector3 treeSpawnValues = new Vector3(8, -.75f, 250);
-    private Vector3 rockSpawnValues = new Vector3(8, .65f, 250);
+    private Vector3 rockSpawnValues = new Vector3(8, .60f, 250);
  
     private void Start()
     {
@@ -53,7 +57,12 @@ public class GameController : MonoBehaviour
 
 
         gameOverText.text = "";
-        restartText.text = ""; 
+
+        Button rbtn = restartButton.GetComponent<Button>();
+        rbtn.onClick.AddListener(Restart);
+
+        Button mbtn = mainMenuButton.GetComponent<Button>();
+        mbtn.onClick.AddListener(MainMenu);
 
         StartCoroutine(SpawnArrows());
 		StartCoroutine(SpawnTerrain());
@@ -83,18 +92,25 @@ public class GameController : MonoBehaviour
         //allows the player to restart by pressing the 'R' key after game over
         if (restart)
         {
-			if (Input.GetKeyDown(KeyCode.R) || MobileInput.Instance.SwipeUp)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-				Mover.setSpeed (50f);
-				Debug.Log ("Speed: " + Mover.getSpeed());
-            }
+			restartButton.SetActive(true);
+			mainMenuButton.SetActive(true);
         }
 
 
     }
 
+    public void Restart()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+		Mover.setSpeed (50f);
+		Debug.Log ("Speed: " + Mover.getSpeed());
+    }
 
+
+    public void MainMenu()
+    {
+    	SceneManager.LoadScene(s, LoadSceneMode.Single);
+    }
 
     //called when the player is destroyed, ending the game
     public void GameOver()
@@ -163,7 +179,6 @@ public class GameController : MonoBehaviour
             //breaks out of the wave spawning loop when gameOver is true
             if (gameOver)
             {
-                restartText.text = "Press 'R' to Restart";
                 restart = true;
                 break;
             }

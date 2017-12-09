@@ -8,7 +8,7 @@ public class PlayerMotor : MonoBehaviour
     private float jumpforce = 6.0f;
     private float gravity = 9.8f;
     private float verticalVelocity;
-    private float speed = 7.0f;
+    private float speed = 10.0f;
 	private bool isMoving;
 
     private const float LANE_DISTANCE = 3.0f;
