@@ -32,7 +32,7 @@ public class GameController : MonoBehaviour
     public Text gameOverText;
 	public Text scoreText;
 
-	public int score;
+	public long score;
 	public float timer;
 
 	public int diffUpScore;
@@ -49,7 +49,10 @@ public class GameController : MonoBehaviour
 
     private Vector3 treeSpawnValues = new Vector3(8, -.75f, 250);
     private Vector3 rockSpawnValues = new Vector3(8, .60f, 250);
- 
+
+    public int diffCount;
+    public int difficulty;
+
     private void Start()
     {
         gameOver = false;
@@ -67,8 +70,10 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnArrows());
 		StartCoroutine(SpawnTerrain());
 
-		score = 0;
-		UpdateScore ();
+        score = 0;
+        diffCount = 1;
+        difficulty = 0;
+        UpdateScore();
     }
 
     private void Update()
@@ -80,14 +85,30 @@ public class GameController : MonoBehaviour
 			UpdateScore ();
 		}
 
-		//Difficulty value shortens the time interval every time the score threshold is passed
-		if ((score % diffUpScore) == 0 && diffCheck == false && !(spawnWaitMax <= spawnWaitMin) ) {
-			diffCheck = true;
-			spawnWaitMax -= 0.05f;
-//			Mover.Instance.setSpeed (Mover.Instance.getSpeed() + 5.0f);
-			Mover.setSpeed(Mover.getSpeed() + 20.0f);
-			Debug.Log ("Speed: " + Mover.getSpeed());
-		}
+        //		//Difficulty value shortens the time interval every time the score threshold is passed
+        //        //Vince's Score Counter / Checker
+        //		if ((score % diffUpScore) == 0 && diffCheck == false && !(spawnWaitMax <= spawnWaitMin) ) {
+        //			diffCheck = true;
+        //			spawnWaitMax -= 0.05f;
+        ////			Mover.Instance.setSpeed (Mover.Instance.getSpeed() + 5.0f);
+        //			Mover.setSpeed(Mover.getSpeed() + 20.0f);
+        //			Debug.Log ("Speed: " + Mover.getSpeed());
+        //		}
+
+        if (diffCount % diffUpScore == 0 && !(spawnWaitMax <= spawnWaitMin))
+        {
+            diffCheck = true;
+            diffCount = 1;
+            difficulty++;
+            if (score % 2 == 1) //Keeps score even after it starts changing difficulty. 
+                score++;
+
+            spawnWaitMax -= 0.05f;
+//          Mover.Instance.setSpeed (Mover.Instance.getSpeed() + 5.0f);
+            Mover.setSpeed(Mover.getSpeed() + 20.0f);
+            //Debug.Log("Speed: " + Mover.getSpeed());
+        }
+
 
         //allows the player to restart by pressing the 'R' key after game over
         if (restart)
@@ -123,12 +144,13 @@ public class GameController : MonoBehaviour
 	//updates the score over time
 	IEnumerator ScoreDelay()
 	{
-		scoreCheck = true;
-		score++;
-		yield return new WaitForSeconds (timer);
-		scoreCheck = false;
-		diffCheck = false;
-	}
+        scoreCheck = true;
+        diffCount++;
+        score = score + (int)Mathf.Pow(2, difficulty);
+        yield return new WaitForSeconds(timer);
+        scoreCheck = false;
+        diffCheck = false;
+    }
 
 
 

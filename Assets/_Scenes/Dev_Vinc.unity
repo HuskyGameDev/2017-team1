@@ -147,18 +147,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 54854449195269584, guid: 4ac6523a8dd7a2f418228a2063633668,
-        type: 2}
-      propertyPath: m_AngularDrag
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65993940493222068, guid: 4ac6523a8dd7a2f418228a2063633668,
-        type: 2}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114785520782183144, guid: 4ac6523a8dd7a2f418228a2063633668, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4ac6523a8dd7a2f418228a2063633668, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &266482051
@@ -383,6 +372,8 @@ MonoBehaviour:
   score: 0
   timer: 0.5
   diffUpScore: 50
+  diffCount: 0
+  difficulty: 0
 --- !u!4 &417609387
 Transform:
   m_ObjectHideFlags: 0
@@ -1557,22 +1548,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1865781056 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1278754072217700, guid: 4ac6523a8dd7a2f418228a2063633668,
-    type: 2}
-  m_PrefabInternal: {fileID: 71861224}
---- !u!114 &1865781057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1865781056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a7dc60bba1e312479158c47cfe3b269, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1894330678
 Prefab:
   m_ObjectHideFlags: 0

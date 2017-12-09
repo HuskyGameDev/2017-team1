@@ -24,8 +24,7 @@ GameObject:
   - component: {fileID: 95482449608316204}
   - component: {fileID: 54854449195269584}
   - component: {fileID: 65993940493222068}
-  - component: {fileID: 114785520782183144}
-  - component: {fileID: 114166538529280358}
+  - component: {fileID: 114544960382710954}
   m_Layer: 0
   m_Name: Rock
   m_TagString: Terrain1
@@ -40,7 +39,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278754072217700}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 6.5686, y: 0, z: -3.7363}
+  m_LocalPosition: {x: 6.94, y: 0.95, z: -49.96}
   m_LocalScale: {x: 0.84257203, y: 0.84257203, z: 0.84257203}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,7 +93,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -107,7 +106,7 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278754072217700}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.6080227, y: 2.7758818, z: 1.7167853}
@@ -129,7 +128,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114166538529280358
+--- !u!114 &114544960382710954
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -137,17 +136,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1278754072217700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84b7691222a8b6942b3cb5460caeec04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114785520782183144
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1278754072217700}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc7da10215454cc4eb42ad033469ee9d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0a7dc60bba1e312479158c47cfe3b269, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
