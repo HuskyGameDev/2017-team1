@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
     public GameObject restartButton;
     public GameObject mainMenuButton;
 
+	public GameObject controls;
+
 //    public int obstacleCount;
 
     public float spawnWaitMin;
@@ -57,7 +59,7 @@ public class GameController : MonoBehaviour
     {
         gameOver = false;
         restart = false;
-
+		controls.SetActive (false);
 
         gameOverText.text = "";
 
@@ -115,6 +117,7 @@ public class GameController : MonoBehaviour
         {
 			restartButton.SetActive(true);
 			mainMenuButton.SetActive(true);
+			controls.SetActive(true);
         }
 
 
