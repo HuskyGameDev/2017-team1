@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Boundary
   - Obstacle
+  - Terrain1
+  - Terrain
+  - Log
   layers:
   - Default
   - TransparentFX

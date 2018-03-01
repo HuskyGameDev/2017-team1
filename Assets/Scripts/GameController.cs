@@ -33,6 +33,7 @@ public class GameController : MonoBehaviour
 
     public Text gameOverText;
 	public Text scoreText;
+    public Text healthText;
 
 	public long score;
 	public float timer;
@@ -48,18 +49,23 @@ public class GameController : MonoBehaviour
 	private bool diffCheck;
 
     private GameObject terrain;
+    private GameObject logBlock;
 
     private Vector3 treeSpawnValues = new Vector3(8, -.75f, 250);
     private Vector3 rockSpawnValues = new Vector3(8, .60f, 250);
+    private Vector3 logSpawnValues = new Vector3(0, .67f, 250);
 
     public int diffCount;
     public int difficulty;
+
+    public int playerHealth;
 
     private void Start()
     {
         gameOver = false;
         restart = false;
 		controls.SetActive (false);
+        playerHealth = 3;
 
         gameOverText.text = "";
 
@@ -71,11 +77,13 @@ public class GameController : MonoBehaviour
 
         StartCoroutine(SpawnArrows());
 		StartCoroutine(SpawnTerrain());
+        StartCoroutine(Spawn2LaneLog());
 
         score = 0;
         diffCount = 1;
         difficulty = 0;
         UpdateScore();
+        UpdateHealth();
     }
 
     private void Update()
@@ -144,8 +152,21 @@ public class GameController : MonoBehaviour
 
     }
 
-	//updates the score over time
-	IEnumerator ScoreDelay()
+    //called when the player is hit by an obstacle
+    public int PlayerHit()
+    {
+        playerHealth--;
+        UpdateHealth();
+        //Debug.Log("Health =" + playerHealth);
+        if (playerHealth <= 0)
+            GameOver(); //------------------------------------------------
+
+
+        return playerHealth;
+    }
+
+    //updates the score over time
+    IEnumerator ScoreDelay()
 	{
         scoreCheck = true;
         diffCount++;
@@ -187,7 +208,7 @@ public class GameController : MonoBehaviour
 
                 //The spawn position is set as desired. The spawn rotation ensures 
                 //the arrows spawn facing the player.
-                Vector3 spawnPosition = new Vector3(xVal * spawnValues.x, spawnValues.y, spawnValues.z);
+                Vector3 spawnPosition = new Vector3(xVal * spawnValues.x, spawnValues.y + 1.5f, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 spawnRotation[0] = -1;
                 Instantiate(obstacle, spawnPosition, spawnRotation);
@@ -254,10 +275,71 @@ public class GameController : MonoBehaviour
 		}
 	}
 
-	void UpdateScore ()
+    IEnumerator Spawn2LaneLog()
+    {
+        Vector3 spawnPosition;
+
+        while (true)
+        {
+            float xrand = Random.Range(0, 4);
+            Debug.Log("xrand is " + xrand);
+            float xValue;
+            if (xrand <= 2)
+            {
+                xValue = -.3f; //Right and Center Lane
+            }
+            else
+            {
+                xValue = -3.8f; //Left and Center Lane
+            }
+
+            Quaternion spawnRotation = Quaternion.identity;
+            spawnRotation[1] = 1;
+            spawnRotation[0] = 0;
+            //spawnRotation [2] = 1;
+
+            string tText = "Log";
+            spawnPosition = new Vector3(xValue, logSpawnValues.y, logSpawnValues.z);
+
+            //float trand = Random.Range(0, 4);
+            int trand = 0;
+            if (trand < 2)
+            {
+                //tText = "";
+                //spawnPosition = new Vector3(xVal, logSpawnValues.y, logSpawnValues.z);
+            }
+            else
+            {
+                // Location for more walls and other stuff
+                //tText = "Terrain1";
+                //spawnPosition = new Vector3(xVal * rockSpawnValues.x, rockSpawnValues.y, rockSpawnValues.z);
+            }
+
+            logBlock = GameObject.FindWithTag(tText);
+
+            Instantiate(logBlock, spawnPosition, spawnRotation);
+
+            tSpawnWait = Random.Range(tSpawnWaitMin, tSpawnWaitMax);
+            yield return new WaitForSeconds(tSpawnWait);
+
+
+            if (gameOver)
+            {
+                break;
+            }
+        }
+    }
+
+    void UpdateScore ()
 	{
 		scoreText.text = "Score: " + score;
 		return;
 	}
+
+    void UpdateHealth()
+    {
+        healthText.text = "Health: " + playerHealth;
+        return;
+    }
 			
 }

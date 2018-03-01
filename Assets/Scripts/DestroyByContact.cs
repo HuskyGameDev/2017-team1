@@ -8,9 +8,11 @@ using UnityEngine;
 public class DestroyByContact : MonoBehaviour
 {
     private GameController gameController;
+    int temp;
 
     private void Start()
     {
+        temp = int.MaxValue;
         //this block gets the game controller object and allows it to be used within this script
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         if (gameControllerObject != null)
@@ -31,15 +33,26 @@ public class DestroyByContact : MonoBehaviour
             return;
         }
 
+		if (other.tag == "Log") 
+		{
+			return;
+		}
+
         //detects when the player is destroyed and ends the game
         if (other.tag == "Player")
         {
-            gameController.GameOver();
+            temp = gameController.PlayerHit();
+            this.gameObject.SetActive(false);
+            if (temp == 0)
+                Destroy(other.gameObject);
+            //gameController.GameOver();
         }
 
 
-        //Destroys anything that enters the trigger
-        Destroy(other.gameObject);
+
+        
+
+
 
     }
 }
