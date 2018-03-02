@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 //Author: Vincent McClintock
 //Date: 10-18-2017
@@ -33,9 +36,11 @@ public class GameController : MonoBehaviour
 
     public Text gameOverText;
 	public Text scoreText;
+	public Text HSText;
     public Text healthText;
 
 	public long score;
+	public long highScore = 0;
 	public float timer;
 
 	public int diffUpScore;
@@ -62,6 +67,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+		Load ();
+		UpdateHighScore();
         gameOver = false;
         restart = false;
 		controls.SetActive (false);
@@ -148,10 +155,42 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverText.text = "Game Over";
+		if (score > highScore) {
+			highScore = score;
+			UpdateHighScore ();
+		}
+		Save ();	
         gameOver = true;
 
     }
 
+	//called to save the highscore value between sessions
+	public void Save()
+	{
+		BinaryFormatter bf = new BinaryFormatter ();
+		FileStream file = File.Open (Application.persistentDataPath + "/highScore.dat", FileMode.OpenOrCreate);
+
+		PlayerData data = new PlayerData ();
+		data.highScore = highScore;
+
+		bf.Serialize (file, data);
+		file.Close ();
+	}
+
+	//called to load the highscore value on new session
+	public void Load()
+	{
+		if (File.Exists (Application.persistentDataPath + "/highScore.dat")) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (Application.persistentDataPath + "/highScore.dat", FileMode.Open);
+			PlayerData data = (PlayerData) bf.Deserialize (file);
+			file.Close ();
+
+			highScore = data.highScore;
+		}
+
+	}
+		
     //called when the player is hit by an obstacle
     public int PlayerHit()
     {
@@ -190,7 +229,7 @@ public class GameController : MonoBehaviour
 //            {
                 //Random variable is used in an if, elseif statement in order to have
                 //arrows spawn in one of three lanes; left, middle, and right.
-                float xrand = Random.Range(0, 6);
+                float xrand = UnityEngine.Random.Range(0, 6);
                 int xVal;
                 if (xrand < 2)
                 {
@@ -215,7 +254,7 @@ public class GameController : MonoBehaviour
 
 
 				//Allows arrows to spawn randomly within a time interval
-				spawnWait = Random.Range(spawnWaitMin, spawnWaitMax);
+				spawnWait = UnityEngine.Random.Range(spawnWaitMin, spawnWaitMax);
 				yield return new WaitForSeconds(spawnWait);
 
 //            }
@@ -237,7 +276,7 @@ public class GameController : MonoBehaviour
 
 		while (true)
 		{
-			float xrand = Random.Range(0, 3);
+			float xrand = UnityEngine.Random.Range(0, 3);
 			int xVal;
 			if (xrand < 2) {
 				xVal = -1;
@@ -251,7 +290,7 @@ public class GameController : MonoBehaviour
 
 			string tText = "";
 
-			float trand = Random.Range(0, 4);
+			float trand = UnityEngine.Random.Range(0, 4);
 			if (trand < 2) {
 				tText = "Terrain";
 				spawnPosition = new Vector3(xVal * treeSpawnValues.x, treeSpawnValues.y, treeSpawnValues.z);
@@ -264,7 +303,7 @@ public class GameController : MonoBehaviour
 
 			Instantiate(terrain, spawnPosition, spawnRotation);
 
-			tSpawnWait = Random.Range(tSpawnWaitMin, tSpawnWaitMax);
+			tSpawnWait = UnityEngine.Random.Range(tSpawnWaitMin, tSpawnWaitMax);
 			yield return new WaitForSeconds(tSpawnWait);
 
 
@@ -281,7 +320,7 @@ public class GameController : MonoBehaviour
 
         while (true)
         {
-            float xrand = Random.Range(0, 4);
+            float xrand = UnityEngine.Random.Range(0, 4);
             Debug.Log("xrand is " + xrand);
             float xValue;
             if (xrand <= 2)
@@ -319,7 +358,7 @@ public class GameController : MonoBehaviour
 
             Instantiate(logBlock, spawnPosition, spawnRotation);
 
-            tSpawnWait = Random.Range(tSpawnWaitMin, tSpawnWaitMax);
+            tSpawnWait = UnityEngine.Random.Range(tSpawnWaitMin, tSpawnWaitMax);
             yield return new WaitForSeconds(tSpawnWait);
 
 
@@ -329,6 +368,12 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+	void UpdateHighScore()
+	{
+		HSText.text = "High Score: " + highScore;
+		return;
+	}
 
     void UpdateScore ()
 	{
@@ -342,4 +387,12 @@ public class GameController : MonoBehaviour
         return;
     }
 			
+}
+
+//class used in storing persistant player data
+[Serializable]
+class PlayerData
+{
+	public long highScore;
+
 }
