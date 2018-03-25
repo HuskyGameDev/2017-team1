@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ade880b4635c4c4a9e7c54d8cd40682, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - Guid: '{59AD7F5C-5FB0-4356-92C7-6D081A68292B}'
+    m_lastTimePart2: -1999269223
+    m_lastTimePsrt1: -1055475825
+    ParentPhysicalPath: 
+    PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    List: []
+  autoPopulateEnabled: 1
+  AuxBusWwu:
+  - Guid: '{FC6BE656-C809-45C6-9D85-3A3311E3B535}'
+    m_lastTimePart2: -1999269223
+    m_lastTimePsrt1: -1055805302
+    ParentPhysicalPath: 
+    PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    List: []
+  BankWwu:
+  - Guid: '{1FE1DD6B-8489-4CDE-9585-2CF5438E37AC}'
+    m_lastTimePart2: -1999269218
+    m_lastTimePsrt1: -21187199
+    ParentPhysicalPath: 
+    PhysicalPath: SoundBanks\Default Work Unit.wwu
+    List:
+    - Guid: 2c4d0eba7cfc6546ac97236e204738b7
+      ID: -1133058374
+      Name: main
+      Path: Default Work Unit\main
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: main
+        ObjectType: 7
+  basePath: Audio\GeneratedSoundBanks
+  callbackManagerBufferSize: 4
+  CurrentPluginConfig: 
+  defaultPoolSize: 4096
+  EventWwu:
+  - Guid: '{85217CDB-C58E-4014-95B9-B019605D2933}'
+    m_lastTimePart2: -1999269218
+    m_lastTimePsrt1: -21261946
+    ParentPhysicalPath: 
+    PhysicalPath: Events\Default Work Unit.wwu
+    List:
+    - Guid: dce80cad107e3b45b2ad4448ce6e2047
+      ID: 1081710667
+      Name: oof
+      Path: Default Work Unit\oof
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: oof
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  ExpandedItems:
+  - /2017-team1_WwiseProject
+  - /2017-team1_WwiseProject/Events
+  - /2017-team1_WwiseProject/Events/Default Work Unit
+  language: English(US)
+  lowerPoolSize: 2048
+  m_lastPopulateTimePart2: 0
+  m_lastPopulateTimePsrt1: 0
+  memoryCutoffThreshold: 0.95
+  preparePoolSize: 0
+  RtpcWwu:
+  - Guid: '{FF4B087C-C83E-40E2-8707-2E653CB830F6}'
+    m_lastTimePart2: -1999269223
+    m_lastTimePsrt1: -1055925107
+    ParentPhysicalPath: 
+    PhysicalPath: Game Parameters\Default Work Unit.wwu
+    List: []
+  StateWwu:
+  - Guid: '{406C9F87-4516-49E0-B8C2-44EECA40BFD7}'
+    m_lastTimePart2: -1999269223
+    m_lastTimePsrt1: -1055525744
+    ParentPhysicalPath: 
+    PhysicalPath: States\Default Work Unit.wwu
+    List: []
+  streamingPoolSize: 1024
+  SwitchWwu:
+  - Guid: '{914D77B9-B493-4256-95FD-2FDE06AEC0E3}'
+    m_lastTimePart2: -1999269223
+    m_lastTimePsrt1: -1055915124
+    ParentPhysicalPath: 
+    PhysicalPath: Switches\Default Work Unit.wwu
+    List: []
+  TriggerWwu:
+  - Guid: '{F3BF66D6-2384-4E71-BA01-6E6E1DA04E29}'
+    m_lastTimePart2: -1999269223
+    m_lastTimePsrt1: -1056279534
+    ParentPhysicalPath: 
+    PhysicalPath: Triggers\Default Work Unit.wwu
+    List: []

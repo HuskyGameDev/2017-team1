@@ -140,6 +140,7 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        AkSoundEngine.PostEvent("bloop", gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		Mover.setSpeed (50f);
 		Debug.Log ("Speed: " + Mover.getSpeed());
@@ -148,7 +149,8 @@ public class GameController : MonoBehaviour
 
     public void MainMenu()
     {
-    	SceneManager.LoadScene(s, LoadSceneMode.Single);
+        AkSoundEngine.PostEvent("bloop", gameObject);
+        SceneManager.LoadScene(s, LoadSceneMode.Single);
     }
 
     //called when the player is destroyed, ending the game

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="11" SoundbankVersion="128">
+	<RootPaths>
+		<ProjectRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\</SourceFilesRoot>
+		<SoundBanksRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\GeneratedSoundBanks\Windows\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\GeneratedSoundBanks\Windows\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
+			<ShortName>main</ShortName>
+			<Path>main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="3934470655" Name="bloop" ObjectPath="\Events\Default Work Unit\bloop"/>
+				<Event Id="1081710667" Name="oof" ObjectPath="\Events\Default Work Unit\oof"/>
+				<Event Id="980059223" Name="uuf" ObjectPath="\Events\Default Work Unit\uuf"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="9169935" Language="SFX">
+					<ShortName>bloop.wav</ShortName>
+					<Path>SFX\bloop_1C9C67B2.wem</Path>
+				</File>
+				<File Id="272192243" Language="SFX">
+					<ShortName>classic_hurt.wav</ShortName>
+					<Path>SFX\classic_hurt_1C9C67B2.wem</Path>
+				</File>
+				<File Id="453284470" Language="SFX">
+					<ShortName>roblox-death-sound_1.wav</ShortName>
+					<Path>SFX\roblox-death-sound_1_1C9C67B2.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>

@@ -1,0 +1,10 @@
+Event	ID	Name			Wwise Object Path	Notes
+	980059223	uuf			\Default Work Unit\uuf	
+	1081710667	oof			\Default Work Unit\oof	
+	3934470655	bloop			\Default Work Unit\bloop	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	9169935	bloop	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\bloop_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\bloop		19712
+	272192243	uuf	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\classic_hurt_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\uuf		29986
+	453284470	oof	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\roblox-death-sound_1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\oof		85128
+

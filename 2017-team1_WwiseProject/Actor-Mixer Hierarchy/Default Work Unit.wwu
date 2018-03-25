@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{BDD37FD1-6E8A-41F8-A7FC-46160644DE88}" SchemaVersion="85">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{BDD37FD1-6E8A-41F8-A7FC-46160644DE88}" PersistMode="Standalone">
+			<ChildrenList>
+				<Sound Name="oof" ID="{412E2696-14C0-45D2-8994-36722E34C995}" ShortID="15313934">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{C00D3396-1992-4B97-AE72-E8F1B60E2764}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{FC6BE656-C809-45C6-9D85-3A3311E3B535}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="roblox-death-sound_1" ID="{43921AF5-6901-4824-B5F7-7C7A368C4869}" ShortID="453284470">
+							<Language>SFX</Language>
+							<AudioFile>roblox-death-sound_1.wav</AudioFile>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="roblox-death-sound_1" ID="{43921AF5-6901-4824-B5F7-7C7A368C4869}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
