@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
 {
 
     public GameObject obstacle;
-    public Vector3 spawnValues;
+	public GameObject PowerUp;
 
     public GameObject restartButton;
     public GameObject mainMenuButton;
@@ -34,6 +34,10 @@ public class GameController : MonoBehaviour
     public float tSpawnWaitMax;
     public float tSpawnWait;
 
+	public float pSpawnWaitMin;
+	public float pSpawnWaitMax;
+	public float pSpawnWait;
+
     public Text gameOverText;
 	public Text scoreText;
 	public Text HSText;
@@ -51,11 +55,12 @@ public class GameController : MonoBehaviour
     private string s = "_Scenes/mainmenu1";
 
 	private bool scoreCheck;
-	private bool diffCheck;
 
     private GameObject terrain;
     private GameObject logBlock;
 
+	private Vector3 arrowSpawnValues = new Vector3(3, 1.5f, 300);
+	private Vector3 powUpSpawnValues = new Vector3(3, 0.0f, 315);
     private Vector3 treeSpawnValues = new Vector3(8, -.75f, 250);
     private Vector3 rockSpawnValues = new Vector3(8, .60f, 250);
     private Vector3 logSpawnValues = new Vector3(0, .67f, 250);
@@ -85,6 +90,7 @@ public class GameController : MonoBehaviour
         StartCoroutine(SpawnArrows());
 		StartCoroutine(SpawnTerrain());
         StartCoroutine(Spawn2LaneLog());
+		StartCoroutine (SpawnPowerup ());
 
         score = 0;
         diffCount = 1;
@@ -101,20 +107,9 @@ public class GameController : MonoBehaviour
 			StartCoroutine (ScoreDelay ());
 			UpdateScore ();
 		}
-
-        //		//Difficulty value shortens the time interval every time the score threshold is passed
-        //        //Vince's Score Counter / Checker
-        //		if ((score % diffUpScore) == 0 && diffCheck == false && !(spawnWaitMax <= spawnWaitMin) ) {
-        //			diffCheck = true;
-        //			spawnWaitMax -= 0.05f;
-        ////			Mover.Instance.setSpeed (Mover.Instance.getSpeed() + 5.0f);
-        //			Mover.setSpeed(Mover.getSpeed() + 20.0f);
-        //			Debug.Log ("Speed: " + Mover.getSpeed());
-        //		}
-
+			
         if (diffCount % diffUpScore == 0 && !(spawnWaitMax <= spawnWaitMin))
         {
-            diffCheck = true;
             diffCount = 1;
             difficulty++;
             if (score % 2 == 1) //Keeps score even after it starts changing difficulty. 
@@ -204,6 +199,14 @@ public class GameController : MonoBehaviour
         return playerHealth;
     }
 
+	//called when the player gains health from a powerup
+	public int HealtPowUp()
+	{
+		playerHealth++;
+		UpdateHealth();
+		return playerHealth;
+	}
+
     //updates the score over time
     IEnumerator ScoreDelay()
 	{
@@ -212,7 +215,6 @@ public class GameController : MonoBehaviour
         score = score + (int)Mathf.Pow(2, difficulty);
         yield return new WaitForSeconds(timer);
         scoreCheck = false;
-        diffCheck = false;
     }
 
 
@@ -247,7 +249,7 @@ public class GameController : MonoBehaviour
 
                 //The spawn position is set as desired. The spawn rotation ensures 
                 //the arrows spawn facing the player.
-                Vector3 spawnPosition = new Vector3(xVal * spawnValues.x, spawnValues.y + 1.5f, spawnValues.z);
+                Vector3 spawnPosition = new Vector3(xVal * arrowSpawnValues.x, arrowSpawnValues.y, arrowSpawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 spawnRotation[0] = -1;
                 Instantiate(obstacle, spawnPosition, spawnRotation);
@@ -368,6 +370,46 @@ public class GameController : MonoBehaviour
             }
         }
     }
+
+
+	IEnumerator SpawnPowerup()
+	{
+		yield return new WaitForSeconds(startWait);
+
+
+		while (true)
+		{
+			float xrand = UnityEngine.Random.Range(0, 6);
+			int xVal;
+			if (xrand < 2)
+			{
+				xVal = -1;
+			}
+			else if (xrand < 4)
+			{
+				xVal = 0;
+			}
+			else
+			{
+				xVal = 1;
+			}
+
+
+			Vector3 spawnPosition = new Vector3(xVal * powUpSpawnValues.x, powUpSpawnValues.y, powUpSpawnValues.z);
+			Quaternion spawnRotation = Quaternion.identity;
+			Instantiate(PowerUp, spawnPosition, spawnRotation);
+
+
+			pSpawnWait = UnityEngine.Random.Range(pSpawnWaitMin, pSpawnWaitMax);
+			yield return new WaitForSeconds(pSpawnWait);
+
+			//breaks out of the spawning loop when gameOver is true
+			if (gameOver)
+			{
+				break;
+			}
+		}
+	}
 
 	void UpdateHighScore()
 	{

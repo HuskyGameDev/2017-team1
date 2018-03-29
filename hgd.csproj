@@ -230,6 +230,7 @@
     <Compile Include="Assets\Scripts\PlayerMotorOld.cs" />
     <Compile Include="Assets\Scripts\QuitScript.cs" />
     <Compile Include="Assets\Scripts\SelectScript.cs" />
+    <Compile Include="Assets\Scripts\Spawn.cs" />
     <Compile Include="Assets\Scripts\TerrainMover.cs" />
     <Compile Include="Assets\Unity UI\Scripts\ActiveStateToggler.cs" />
     <Compile Include="Assets\Unity UI\Scripts\ApplicationManager.cs" />
