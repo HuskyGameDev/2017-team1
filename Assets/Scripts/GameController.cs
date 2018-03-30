@@ -68,6 +68,7 @@ public class GameController : MonoBehaviour
     public int diffCount;
     public int difficulty;
 
+    public int playerHealthmax= 3;
     public int playerHealth;
 
     private void Start()
@@ -77,7 +78,7 @@ public class GameController : MonoBehaviour
         gameOver = false;
         restart = false;
 		controls.SetActive (false);
-        playerHealth = 3;
+        playerHealth = playerHealthmax;
 
         gameOverText.text = "";
 
