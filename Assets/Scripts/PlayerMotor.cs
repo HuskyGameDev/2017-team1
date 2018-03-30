@@ -47,7 +47,7 @@ public class PlayerMotor : MonoBehaviour
         moveVector.x = (targetPosition - transform.position).normalized.x * speed;
 
         //Check if the Player is Moving
-        if(Mathf.Abs(moveVector.x) > 5)
+        if(Mathf.Abs(moveVector.x) > 10)
         {
             isMoving = true;
         }

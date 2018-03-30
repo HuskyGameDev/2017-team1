@@ -203,9 +203,15 @@ public class GameController : MonoBehaviour
 	//called when the player gains health from a powerup
 	public int HealtPowUp()
 	{
-		playerHealth++;
-		UpdateHealth();
-		return playerHealth;
+        if(playerHealth < 5)
+        {
+            playerHealth++;
+            UpdateHealth();
+            return playerHealth;
+        }
+
+        return playerHealth;
+		
 	}
 
     //updates the score over time
@@ -326,7 +332,7 @@ public class GameController : MonoBehaviour
             float xrand = UnityEngine.Random.Range(0, 4);
             Debug.Log("xrand is " + xrand);
             float xValue;
-            if (xrand <= 2)
+            if (xrand < 2)
             {
                 xValue = -.3f; //Right and Center Lane
             }
@@ -361,8 +367,8 @@ public class GameController : MonoBehaviour
 
             Instantiate(logBlock, spawnPosition, spawnRotation);
 
-            tSpawnWait = UnityEngine.Random.Range(tSpawnWaitMin, tSpawnWaitMax);
-            yield return new WaitForSeconds(tSpawnWait);
+            tSpawnWait = UnityEngine.Random.Range(spawnWaitMin, spawnWaitMax);
+            yield return new WaitForSeconds(tSpawnWait * 4);
 
 
             if (gameOver)

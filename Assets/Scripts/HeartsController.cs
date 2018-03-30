@@ -10,8 +10,8 @@ public class HeartsController : MonoBehaviour
     public Image HeartUI;
 
     private GameController gameController;
+    
 
-    int health = 0;
     void Start()
     {
         gameController = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();

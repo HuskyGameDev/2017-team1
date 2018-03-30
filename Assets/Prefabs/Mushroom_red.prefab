@@ -55,9 +55,9 @@ GameObject:
   - component: {fileID: 4646517928292026}
   - component: {fileID: 95250999307433630}
   - component: {fileID: 114725205624117736}
-  - component: {fileID: 114604971497105056}
   - component: {fileID: 65224462032719334}
   - component: {fileID: 54372490425306344}
+  - component: {fileID: 114662158212771388}
   m_Layer: 0
   m_Name: Mushroom_red
   m_TagString: PowerUp
@@ -115,7 +115,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -131,7 +130,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -149,7 +147,6 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -165,7 +162,6 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -232,7 +228,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114604971497105056
+--- !u!114 &114662158212771388
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -240,7 +236,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657381618826088}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19fbc917a77fde4789aa282836957bd, type: 3}
+  m_Script: {fileID: 11500000, guid: b90c60907d28e1b47b6d232acf3aebea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &114725205624117736
