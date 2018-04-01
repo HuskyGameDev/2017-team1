@@ -17,6 +17,34 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="uuf" ID="{F06EE5F8-65EA-46BC-9D39-2320C5886E56}">
+					<ChildrenList>
+						<Action Name="" ID="{C971D6EB-86F4-4741-8594-FA556FCBFF49}" ShortID="464432931">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="uuf" ID="{8143895B-D34F-4EAC-AEE1-FA969EF40CC7}" WorkUnitID="{BDD37FD1-6E8A-41F8-A7FC-46160644DE88}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="bloop" ID="{3136ACD1-AFF8-413B-B6A6-589FA66F2FBF}">
+					<ChildrenList>
+						<Action Name="" ID="{3F37E3D6-9DD3-4AD7-98F8-7FB65AE24A2A}" ShortID="680053505">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bloop" ID="{3A8DDC2F-CC1C-4499-AB0E-4C4262503CBB}" WorkUnitID="{BDD37FD1-6E8A-41F8-A7FC-46160644DE88}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

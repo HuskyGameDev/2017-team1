@@ -5,7 +5,9 @@
 			<ChildrenList>
 				<SoundBank Name="main" ID="{BA0E4D2C-FC7C-4665-AC97-236E204738B7}">
 					<ObjectInclusionList>
+						<ObjectRef Name="bloop" ID="{3136ACD1-AFF8-413B-B6A6-589FA66F2FBF}" WorkUnitID="{85217CDB-C58E-4014-95B9-B019605D2933}" Filter="7" Origin="Manual"/>
 						<ObjectRef Name="oof" ID="{AD0CE8DC-7E10-453B-B2AD-4448CE6E2047}" WorkUnitID="{85217CDB-C58E-4014-95B9-B019605D2933}" Filter="7" Origin="Manual"/>
+						<ObjectRef Name="uuf" ID="{F06EE5F8-65EA-46BC-9D39-2320C5886E56}" WorkUnitID="{85217CDB-C58E-4014-95B9-B019605D2933}" Filter="7" Origin="Manual"/>
 					</ObjectInclusionList>
 					<ObjectExclusionList/>
 					<GameSyncExclusionList/>
