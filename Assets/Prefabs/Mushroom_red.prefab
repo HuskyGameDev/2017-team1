@@ -55,9 +55,9 @@ GameObject:
   - component: {fileID: 4646517928292026}
   - component: {fileID: 95250999307433630}
   - component: {fileID: 114725205624117736}
+  - component: {fileID: 114662158212771388}
   - component: {fileID: 65224462032719334}
   - component: {fileID: 54372490425306344}
-  - component: {fileID: 114662158212771388}
   m_Layer: 0
   m_Name: Mushroom_red
   m_TagString: PowerUp

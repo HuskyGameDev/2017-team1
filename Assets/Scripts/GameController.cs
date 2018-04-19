@@ -14,7 +14,6 @@ public class GameController : MonoBehaviour
 {
 
     public GameObject obstacle;
-	public GameObject PowerUp;
 
     public GameObject restartButton;
     public GameObject mainMenuButton;
@@ -60,7 +59,7 @@ public class GameController : MonoBehaviour
     private GameObject logBlock;
 
 	private Vector3 arrowSpawnValues = new Vector3(3, 1.5f, 300);
-	private Vector3 powUpSpawnValues = new Vector3(3, 0.0f, 315);
+//	private Vector3 powUpSpawnValues = new Vector3(3, 0.0f, 315);
     private Vector3 treeSpawnValues = new Vector3(8, -.75f, 250);
     private Vector3 rockSpawnValues = new Vector3(8, .60f, 250);
     private Vector3 logSpawnValues = new Vector3(0, .67f, 250);
@@ -116,10 +115,8 @@ public class GameController : MonoBehaviour
             if (score % 2 == 1) //Keeps score even after it starts changing difficulty. 
                 score++;
 
-            spawnWaitMax -= 0.05f;
-//          Mover.Instance.setSpeed (Mover.Instance.getSpeed() + 5.0f);
-            Mover.setSpeed(Mover.getSpeed() + 20.0f);
-            //Debug.Log("Speed: " + Mover.getSpeed());
+			spawnWaitMax -= 0.05f;
+            ArrowMover.setSpeed(ArrowMover.getSpeed() + 20.0f);
         }
 
 
@@ -137,8 +134,8 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		Mover.setSpeed (50f);
-		Debug.Log ("Speed: " + Mover.getSpeed());
+		ArrowMover.setSpeed (50f);
+		Debug.Log ("Speed: " + ArrowMover.getSpeed());
     }
 
 
@@ -401,10 +398,18 @@ public class GameController : MonoBehaviour
 				xVal = 1;
 			}
 
+			GameObject[] Powerups;
+			GameObject toSpawn;
 
-			Vector3 spawnPosition = new Vector3(xVal * powUpSpawnValues.x, powUpSpawnValues.y, powUpSpawnValues.z);
+			Powerups = GameObject.FindGameObjectsWithTag ("PowerUp");
+			toSpawn = Powerups [UnityEngine.Random.Range (0, Powerups.Length)];
+
+			Vector3 defaultPosition = toSpawn.transform.position;
+
+			Vector3 spawnPosition = new Vector3(xVal * defaultPosition.x, defaultPosition.y, defaultPosition.z + 365);
 			Quaternion spawnRotation = Quaternion.identity;
-			Instantiate(PowerUp, spawnPosition, spawnRotation);
+			GameObject spawned = Instantiate(toSpawn, spawnPosition, spawnRotation);
+			spawned.tag = "Untagged";
 
 
 			pSpawnWait = UnityEngine.Random.Range(pSpawnWaitMin, pSpawnWaitMax);
