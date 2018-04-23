@@ -211,6 +211,18 @@ public class GameController : MonoBehaviour
 		
 	}
 
+	//called when the player grabs an hourglass powerup
+	public void SlowTime()
+	{
+		Time.timeScale = 0.5f;
+		float timeLeft = 5;
+		while (timeLeft < 0) {
+			timeLeft -= Time.deltaTime;
+		}
+		Time.timeScale = 1.0f;
+		return;
+	}
+
     //updates the score over time
     IEnumerator ScoreDelay()
 	{

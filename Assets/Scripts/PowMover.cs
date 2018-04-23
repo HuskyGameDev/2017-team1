@@ -11,9 +11,10 @@ public class PowMover : MonoBehaviour
 	public static float speed = 50f;
 	private void Start()
 	{
-
-		//moves the arrow towards the player at a desired speed
-		GetComponent<Rigidbody>().velocity = -transform.forward * (ArrowMover.getSpeed() - 20f);
+		// If this is a clone of the powerup prefab, set it to move at the terrain speed. 
+		if (gameObject.tag == "Untagged") {
+			GetComponent<Rigidbody> ().velocity = -transform.forward * (ArrowMover.getSpeed () - 20f);
+		}
 	}
 
 	public static float getSpeed(){
