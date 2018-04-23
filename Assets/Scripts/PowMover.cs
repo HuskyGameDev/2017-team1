@@ -13,7 +13,7 @@ public class PowMover : MonoBehaviour
 	{
 
 		//moves the arrow towards the player at a desired speed
-		GetComponent<Rigidbody>().velocity = -transform.forward * (ArrowMover.getSpeed() - 20f);
+		GetComponent<Rigidbody>().velocity = -transform.forward * (Mover.getSpeed() - 20f);
 	}
 
 	public static float getSpeed(){

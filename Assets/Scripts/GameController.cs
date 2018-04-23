@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using GoogleMobileAds;
+using GoogleMobileAds.Api;
 
 //Author: Vincent McClintock
 //Date: 10-18-2017
@@ -14,6 +16,7 @@ public class GameController : MonoBehaviour
 {
 
     public GameObject obstacle;
+	public GameObject PowerUp;
 
     public GameObject restartButton;
     public GameObject mainMenuButton;
@@ -59,7 +62,7 @@ public class GameController : MonoBehaviour
     private GameObject logBlock;
 
 	private Vector3 arrowSpawnValues = new Vector3(3, 1.5f, 300);
-//	private Vector3 powUpSpawnValues = new Vector3(3, 0.0f, 315);
+	private Vector3 powUpSpawnValues = new Vector3(3, 0.0f, 315);
     private Vector3 treeSpawnValues = new Vector3(8, -.75f, 250);
     private Vector3 rockSpawnValues = new Vector3(8, .60f, 250);
     private Vector3 logSpawnValues = new Vector3(0, .67f, 250);
@@ -69,6 +72,10 @@ public class GameController : MonoBehaviour
 
     public int playerHealthmax= 3;
     public int playerHealth;
+
+    public Boolean doAdsExist = true;
+    private BannerView bannerView;
+    
 
     private void Start()
     {
@@ -97,6 +104,7 @@ public class GameController : MonoBehaviour
         difficulty = 0;
         UpdateScore();
         UpdateHealth();
+        RequestBanner();
     }
 
     private void Update()
@@ -115,8 +123,10 @@ public class GameController : MonoBehaviour
             if (score % 2 == 1) //Keeps score even after it starts changing difficulty. 
                 score++;
 
-			spawnWaitMax -= 0.05f;
-            ArrowMover.setSpeed(ArrowMover.getSpeed() + 20.0f);
+            spawnWaitMax -= 0.05f;
+//          Mover.Instance.setSpeed (Mover.Instance.getSpeed() + 5.0f);
+            Mover.setSpeed(Mover.getSpeed() + 20.0f);
+            //Debug.Log("Speed: " + Mover.getSpeed());
         }
 
 
@@ -134,8 +144,8 @@ public class GameController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-		ArrowMover.setSpeed (50f);
-		Debug.Log ("Speed: " + ArrowMover.getSpeed());
+		Mover.setSpeed (50f);
+		//Debug.Log ("Speed: " + Mover.getSpeed());
     }
 
 
@@ -148,6 +158,12 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
         gameOverText.text = "Game Over";
+
+        if (doAdsExist)
+        {
+            RequestBanner();
+        }
+
 		if (score > highScore) {
 			highScore = score;
 			UpdateHighScore ();
@@ -327,7 +343,7 @@ public class GameController : MonoBehaviour
         while (true)
         {
             float xrand = UnityEngine.Random.Range(0, 4);
-            Debug.Log("xrand is " + xrand);
+            //Debug.Log("xrand is " + xrand);
             float xValue;
             if (xrand < 2)
             {
@@ -375,7 +391,6 @@ public class GameController : MonoBehaviour
         }
     }
 
-
 	IEnumerator SpawnPowerup()
 	{
 		yield return new WaitForSeconds(startWait);
@@ -398,18 +413,10 @@ public class GameController : MonoBehaviour
 				xVal = 1;
 			}
 
-			GameObject[] Powerups;
-			GameObject toSpawn;
 
-			Powerups = GameObject.FindGameObjectsWithTag ("PowerUp");
-			toSpawn = Powerups [UnityEngine.Random.Range (0, Powerups.Length)];
-
-			Vector3 defaultPosition = toSpawn.transform.position;
-
-			Vector3 spawnPosition = new Vector3(xVal * defaultPosition.x, defaultPosition.y, defaultPosition.z + 365);
+			Vector3 spawnPosition = new Vector3(xVal * powUpSpawnValues.x, powUpSpawnValues.y, powUpSpawnValues.z);
 			Quaternion spawnRotation = Quaternion.identity;
-			GameObject spawned = Instantiate(toSpawn, spawnPosition, spawnRotation);
-			spawned.tag = "Untagged";
+			Instantiate(PowerUp, spawnPosition, spawnRotation);
 
 
 			pSpawnWait = UnityEngine.Random.Range(pSpawnWaitMin, pSpawnWaitMax);
@@ -440,7 +447,92 @@ public class GameController : MonoBehaviour
         healthText.text = "Health: " + playerHealth;
         return;
     }
-			
+
+    private void RequestBanner()
+    {
+
+        string adUnitId = "ca-app-pub-3048347737566965/9858753627";
+        /*
+        // These ad units are configured to always serve test ads.
+    #if UNITY_EDITOR
+        string adUnitId = "ca-app-pub-3048347737566965/9858753627";
+    #elif UNITY_ANDROID
+        string adUnitId = "ca-app-pub-3048347737566965/9858753627";
+    #elif UNITY_IPHONE
+        string adUnitId = "ca-app-pub-3940256099942544/2934735716";
+    #else
+        string adUnitId = "unexpected_platform";
+    #endif
+        */
+
+        // Clean up banner ad before creating a new one.
+        if (this.bannerView != null)
+        {
+            Debug.Log("The bannerView was not equal to null, and got wrecked");
+            this.bannerView.Destroy();
+        }
+
+        // Create a 320x50 banner at the top of the screen.
+        this.bannerView = new BannerView(adUnitId, AdSize.SmartBanner, AdPosition.Bottom);
+
+        // Register for ad events.
+        this.bannerView.OnAdLoaded += this.HandleAdLoaded;
+        this.bannerView.OnAdFailedToLoad += this.HandleAdFailedToLoad;
+        this.bannerView.OnAdOpening += this.HandleAdOpened;
+        this.bannerView.OnAdClosed += this.HandleAdClosed;
+        this.bannerView.OnAdLeavingApplication += this.HandleAdLeftApplication;
+
+        // Load a banner ad.
+        this.bannerView.LoadAd(this.CreateAdRequest());
+    }
+
+    // Returns an ad request with custom ad targeting.
+    private AdRequest CreateAdRequest()
+    {
+        /*
+        return new AdRequest.Builder()
+            .AddTestDevice(AdRequest.TestDeviceSimulator)
+            .AddTestDevice("0123456789ABCDEF0123456789ABCDEF")
+            .Build();
+
+        */
+
+        return new AdRequest.Builder().Build();
+    }
+
+
+
+    #region Banner callback handlers
+
+    public void HandleAdLoaded(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdLoaded event received");
+    }
+
+    public void HandleAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
+    {
+        MonoBehaviour.print("HandleFailedToReceiveAd event received with message: " + args.Message);
+    }
+
+    public void HandleAdOpened(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdOpened event received");
+    }
+
+    public void HandleAdClosed(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdClosed event received");
+    }
+
+    public void HandleAdLeftApplication(object sender, EventArgs args)
+    {
+        MonoBehaviour.print("HandleAdLeftApplication event received");
+    }
+
+    #endregion
+
+
+
 }
 
 //class used in storing persistant player data
