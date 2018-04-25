@@ -267,7 +267,7 @@ public class GameController : MonoBehaviour
                 //the arrows spawn facing the player.
                 Vector3 spawnPosition = new Vector3(xVal * arrowSpawnValues.x, arrowSpawnValues.y, arrowSpawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
-                spawnRotation[0] = -1;
+                spawnRotation[0] = 0;
                 Instantiate(obstacle, spawnPosition, spawnRotation);
 
 
