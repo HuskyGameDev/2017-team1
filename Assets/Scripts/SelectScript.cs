@@ -23,6 +23,7 @@ public class SelectScript : MonoBehaviour
 
     public void LoadGame()
     {
+        AkSoundEngine.PostEvent("Play_bloop", gameObject);
         SceneManager.LoadScene(s, LoadSceneMode.Single);
     }
 	

@@ -15,6 +15,7 @@ public class QuitScript : MonoBehaviour
 
 	public void Quit ()
     {
+        AkSoundEngine.PostEvent("Play_bloop", gameObject);
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

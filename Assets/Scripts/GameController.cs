@@ -133,6 +133,7 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        AkSoundEngine.PostEvent("Play_bloop", gameObject);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 		ArrowMover.setSpeed (50f);
 		Debug.Log ("Speed: " + ArrowMover.getSpeed());
@@ -141,7 +142,8 @@ public class GameController : MonoBehaviour
 
     public void MainMenu()
     {
-    	SceneManager.LoadScene(s, LoadSceneMode.Single);
+        AkSoundEngine.PostEvent("Play_bloop", gameObject);
+        SceneManager.LoadScene(s, LoadSceneMode.Single);
     }
 
     //called when the player is destroyed, ending the game
@@ -202,6 +204,7 @@ public class GameController : MonoBehaviour
 	{
         if(playerHealth < 5)
         {
+            AkSoundEngine.PostEvent("Play_pot",gameObject);
             playerHealth++;
             UpdateHealth();
             return playerHealth;

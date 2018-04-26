@@ -41,6 +41,15 @@ public class DestroyByContact : MonoBehaviour
         //detects when the player is destroyed and ends the game
         if (other.tag == "Player")
         {
+            if (this.tag == "Log")
+            {
+                AkSoundEngine.PostEvent("Play_moof", gameObject);
+            }
+            if (this.tag == "Obstacle")
+            {
+                AkSoundEngine.PostEvent("Play_roof", gameObject);
+            }
+
             temp = gameController.PlayerHit();
             this.gameObject.SetActive(false);
             if (temp == 0)

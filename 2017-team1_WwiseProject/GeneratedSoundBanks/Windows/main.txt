@@ -1,0 +1,14 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1296833657	Play_moof			\Default Work Unit\Play_moof	
+	2554242742	Play_bloop			\Default Work Unit\Play_bloop	
+	2736696996	Play_roof			\Default Work Unit\Play_roof	
+	2990278355	Play_pot			\Default Work Unit\Play_pot	
+	3114179205	Play_coin			\Default Work Unit\Play_coin	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	81910323	moof	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\classic_hurt_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\moof		29986
+	249721193	pot	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\pot_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\pot		46444
+	595031275	coin	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\coin_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\coin		12428
+	622708026	roof	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\roblox-death-sound_1_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\roof		85128
+	678328923	bloop	E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Windows\SFX\bloop_1C9C67B2.wem		\Actor-Mixer Hierarchy\Default Work Unit\bloop		19712
+

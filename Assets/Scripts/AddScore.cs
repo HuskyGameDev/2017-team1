@@ -36,7 +36,8 @@ public class AddScore : MonoBehaviour {
 		//detects when the player is destroyed and ends the game
 		if (other.tag == "Player")
 		{
-			gameController.AddScore();
+            AkSoundEngine.PostEvent("Play_coin", gameObject);
+            gameController.AddScore();
 			this.gameObject.SetActive(false);
 		}
 	}

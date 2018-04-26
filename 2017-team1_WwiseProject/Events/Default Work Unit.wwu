@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{361EB6EF-4D51-4CEB-B2AC-23F5F9A71BA4}" SchemaVersion="85">
+	<Events>
+		<WorkUnit Name="Default Work Unit" ID="{361EB6EF-4D51-4CEB-B2AC-23F5F9A71BA4}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="Play_bloop" ID="{0185758C-CE77-4E46-92BE-FCDB49A2C9F7}">
+					<ChildrenList>
+						<Action Name="" ID="{87882C42-7966-4C10-81C3-EB91EEF3DC5A}" ShortID="212154549">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="bloop" ID="{840A2003-2B3F-4098-8A8F-9F884622EB36}" WorkUnitID="{47A434E7-81DE-4C3E-8F89-8E1CBEFF0855}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_coin" ID="{79AB8467-5283-4AF4-8670-1998420BBC83}">
+					<ChildrenList>
+						<Action Name="" ID="{3758EF3B-E1B8-442A-9110-5905956E92BF}" ShortID="1072227749">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="coin" ID="{1A499945-8F45-4B85-8BB0-299EE62175E0}" WorkUnitID="{47A434E7-81DE-4C3E-8F89-8E1CBEFF0855}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_moof" ID="{A42FAF89-2757-4BBF-9FDC-848ED2F2C9AA}">
+					<ChildrenList>
+						<Action Name="" ID="{AA324D5B-BBC0-4791-9340-2C475942BF01}" ShortID="722983155">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="moof" ID="{CB17EE82-166E-4018-BFB4-062EC6845F44}" WorkUnitID="{47A434E7-81DE-4C3E-8F89-8E1CBEFF0855}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_roof" ID="{3C56ADBA-942E-4B21-A82B-E7887BE37BFC}">
+					<ChildrenList>
+						<Action Name="" ID="{04326799-4282-4571-95A3-9DCD05D07E23}" ShortID="871697564">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="roof" ID="{6CEA19A7-3FBA-4CF7-9FE0-E9EEE9776E36}" WorkUnitID="{47A434E7-81DE-4C3E-8F89-8E1CBEFF0855}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Play_pot" ID="{6F45C77A-3F10-4827-9068-AD052776459D}">
+					<ChildrenList>
+						<Action Name="" ID="{0282C7AC-AE86-45E1-B87D-303F57A7E2D6}" ShortID="758775121">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="pot" ID="{0CE3F893-0D70-43FD-B6D4-C01BC5EF4952}" WorkUnitID="{47A434E7-81DE-4C3E-8F89-8E1CBEFF0855}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

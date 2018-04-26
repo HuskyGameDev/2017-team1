@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a30df8cf27b629f42bed136e7b197326, type: 3}
+  m_Name: AkWwiseProjectData
+  m_EditorClassIdentifier: 
+  AcousticTextureWwu:
+  - Guid: '{14E55F22-A90B-4681-AE45-5EB9DC3C0BE4}'
+    m_lastTimePart2: -1999262824
+    m_lastTimePsrt1: -277724833
+    ParentPhysicalPath: 
+    PhysicalPath: Virtual Acoustics\Default Work Unit.wwu
+    List: []
+  autoPopulateEnabled: 1
+  AuxBusWwu:
+  - Guid: '{60BE8695-1738-4293-A76C-EF8E49C50FBC}'
+    m_lastTimePart2: -1999262824
+    m_lastTimePsrt1: -277664850
+    ParentPhysicalPath: 
+    PhysicalPath: Master-Mixer Hierarchy\Default Work Unit.wwu
+    List: []
+  BankWwu:
+  - Guid: '{28051459-6F73-49E8-995E-FEB0ACEF4847}'
+    m_lastTimePart2: -1999262822
+    m_lastTimePsrt1: -517818830
+    ParentPhysicalPath: 
+    PhysicalPath: SoundBanks\Default Work Unit.wwu
+    List:
+    - Guid: 066c4f42009db04c8fcdf234e54487ef
+      ID: -1133058374
+      Name: main
+      Path: Default Work Unit\main
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: main
+        ObjectType: 7
+  basePath: Audio\GeneratedSoundBanks
+  callbackManagerBufferSize: 4
+  CurrentPluginConfig: 
+  defaultPoolSize: 4096
+  EventWwu:
+  - Guid: '{361EB6EF-4D51-4CEB-B2AC-23F5F9A71BA4}'
+    m_lastTimePart2: -1999262822
+    m_lastTimePsrt1: -518048762
+    ParentPhysicalPath: 
+    PhysicalPath: Events\Default Work Unit.wwu
+    List:
+    - Guid: 8c75850177ce464e92befcdb49a2c9f7
+      ID: -1740724554
+      Name: Play_bloop
+      Path: Default Work Unit\Play_bloop
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_bloop
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 6784ab798352f44a86701998420bbc83
+      ID: -1180788091
+      Name: Play_coin
+      Path: Default Work Unit\Play_coin
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_coin
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 89af2fa45727bf4b9fdc848ed2f2c9aa
+      ID: 1296833657
+      Name: Play_moof
+      Path: Default Work Unit\Play_moof
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_moof
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: 7ac7456f103f27489068ad052776459d
+      ID: -1304688941
+      Name: Play_pot
+      Path: Default Work Unit\Play_pot
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_pot
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+    - Guid: baad563c2e94214ba82be7887be37bfc
+      ID: -1558270300
+      Name: Play_roof
+      Path: Default Work Unit\Play_roof
+      PathAndIcons:
+      - ElementName: Default Work Unit
+        ObjectType: 12
+      - ElementName: Play_roof
+        ObjectType: 3
+      maxAttenuation: 0
+      maxDuration: 0
+      minDuration: 0
+  ExpandedItems:
+  - /2017-team1_WwiseProject
+  - /2017-team1_WwiseProject/Events
+  - /2017-team1_WwiseProject/SoundBanks
+  language: English(US)
+  lowerPoolSize: 2048
+  m_lastPopulateTimePart2: 0
+  m_lastPopulateTimePsrt1: 0
+  memoryCutoffThreshold: 0.95
+  preparePoolSize: 0
+  RtpcWwu:
+  - Guid: '{310C55BE-04F5-4792-A00E-B83AE26C58B0}'
+    m_lastTimePart2: -1999262824
+    m_lastTimePsrt1: -277768833
+    ParentPhysicalPath: 
+    PhysicalPath: Game Parameters\Default Work Unit.wwu
+    List: []
+  StateWwu:
+  - Guid: '{8A738CC4-ABC1-4A40-8264-6BBB985163CD}'
+    m_lastTimePart2: -1999262824
+    m_lastTimePsrt1: -277191030
+    ParentPhysicalPath: 
+    PhysicalPath: States\Default Work Unit.wwu
+    List: []
+  streamingPoolSize: 1024
+  SwitchWwu:
+  - Guid: '{3ACD6E41-0AD8-4153-9490-1E3BB7CAD038}'
+    m_lastTimePart2: -1999262824
+    m_lastTimePsrt1: -277121059
+    ParentPhysicalPath: 
+    PhysicalPath: Switches\Default Work Unit.wwu
+    List: []
+  TriggerWwu:
+  - Guid: '{901410F5-4DEA-4C3C-9A06-6F05F406AEF4}'
+    m_lastTimePart2: -1999262824
+    m_lastTimePsrt1: -278288756
+    ParentPhysicalPath: 
+    PhysicalPath: Triggers\Default Work Unit.wwu
+    List: []

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="UserProjectSettings" SchemaVersion="85">
+	<UserProjectSettingsInfo>
+		<UserProjectSettings Name="" ID="{9C8A178A-ECDE-4CCF-A659-1AF2FF730A1D}">
+			<PropertyList>
+				<Property Name="Event Action List\{0185758C-CE77-4E46-92BE-FCDB49A2C9F7}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{04EC8447-E159-4B09-ACC1-76E813CD2BB0}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{3C56ADBA-942E-4B21-A82B-E7887BE37BFC}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{6F45C77A-3F10-4827-9068-AD052776459D}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{79AB8467-5283-4AF4-8670-1998420BBC83}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="Event Action List\{A42FAF89-2757-4BBF-9FDC-848ED2F2C9AA}\x64_Expand States" Type="string" Value=""/>
+				<Property Name="ExternalSourcesInputPath" Type="string">
+					<ValueList>
+						<Value Platform="Android"></Value>
+						<Value Platform="Mac"></Value>
+						<Value Platform="Windows"></Value>
+					</ValueList>
+				</Property>
+				<Property Name="ExternalSourcesOutputPath" Type="string">
+					<ValueList>
+						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
+						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
+						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
+					</ValueList>
+				</Property>
+				<Property Name="GenerateSoundBanks\x64_SelectedLanguages" Type="string" Value="BvDMKA=="/>
+				<Property Name="GenerateSoundBanks\x64_SelectedPlatforms" Type="string" Value="xE+8FDi4K0SblVFSGrUwKIzo/SdojShIppgus1sxwXxeUyAFwP8sS40uC70Zr099"/>
+				<Property Name="GenerateSoundBanks\x64_SelectedSoundBanks" Type="string" Value="BmxPQgCdsEyPzfI05USH7w=="/>
+				<Property Name="HardwareController\CurrentSession" Type="string" Value="{2451DD2E-A7B2-45E6-B93B-6F49B9B887AD}"/>
+				<Property Name="MeterView\LastObject1" Type="string" Value="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
+				<Property Name="MeterView\MeterMode1" Type="int32" Value="1"/>
+				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks\"/>
+				<Property Name="SoundBankPaths" Type="string">
+					<ValueList>
+						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
+						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
+						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
+					</ValueList>
+				</Property>
+				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
+					<ValueList>
+						<Value Platform="Android">Copy Streamed Files</Value>
+						<Value Platform="Mac">Copy Streamed Files</Value>
+						<Value Platform="Windows">Copy Streamed Files</Value>
+					</ValueList>
+				</Property>
+				<Property Name="SoundBankPostGenerateCustomCmdLines" Type="string">
+					<ValueList>
+						<Value Platform="Android">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
+						<Value Platform="Mac">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
+						<Value Platform="Windows">"$(WwiseExePath)\CopyStreamedFiles.exe" -info "$(InfoFilePath)" -outputpath "$(SoundBankPath)" -banks "$(SoundBankListAsTextFile)" -languages "$(LanguageList)"</Value>
+					</ValueList>
+				</Property>
+				<Property Name="SoundBankPreGenerateCustomCmdDescription" Type="string">
+					<ValueList>
+						<Value Platform="Android"></Value>
+						<Value Platform="Mac"></Value>
+						<Value Platform="Windows"></Value>
+					</ValueList>
+				</Property>
+				<Property Name="SoundBankPreGenerateCustomCmdLines" Type="string">
+					<ValueList>
+						<Value Platform="Android"></Value>
+						<Value Platform="Mac"></Value>
+						<Value Platform="Windows"></Value>
+					</ValueList>
+				</Property>
+			</PropertyList>
+		</UserProjectSettings>
+	</UserProjectSettingsInfo>
+</WwiseDocument>

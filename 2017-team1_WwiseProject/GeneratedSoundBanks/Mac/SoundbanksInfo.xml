@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Mac" BasePlatform="Mac" SchemaVersion="11" SoundbankVersion="128">
+	<RootPaths>
+		<ProjectRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\</ProjectRoot>
+		<SourceFilesRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\.cache\Mac\</SourceFilesRoot>
+		<SoundBanksRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\GeneratedSoundBanks\Mac\</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>E:\myDocs\GitHub\2017-team1\2017-team1_WwiseProject\GeneratedSoundBanks\Mac\</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="3161908922" Language="SFX">
+			<ObjectPath>\SoundBanks\Default Work Unit\main</ObjectPath>
+			<ShortName>main</ShortName>
+			<Path>main.bnk</Path>
+			<IncludedEvents>
+				<Event Id="2554242742" Name="Play_bloop" ObjectPath="\Events\Default Work Unit\Play_bloop"/>
+				<Event Id="3114179205" Name="Play_coin" ObjectPath="\Events\Default Work Unit\Play_coin"/>
+				<Event Id="1296833657" Name="Play_moof" ObjectPath="\Events\Default Work Unit\Play_moof"/>
+				<Event Id="2990278355" Name="Play_pot" ObjectPath="\Events\Default Work Unit\Play_pot"/>
+				<Event Id="2736696996" Name="Play_roof" ObjectPath="\Events\Default Work Unit\Play_roof"/>
+			</IncludedEvents>
+			<IncludedMemoryFiles>
+				<File Id="81910323" Language="SFX">
+					<ShortName>classic_hurt.wav</ShortName>
+					<Path>SFX\classic_hurt_1C9C67B2.wem</Path>
+				</File>
+				<File Id="249721193" Language="SFX">
+					<ShortName>pot.wav</ShortName>
+					<Path>SFX\pot_1C9C67B2.wem</Path>
+				</File>
+				<File Id="595031275" Language="SFX">
+					<ShortName>coin.wav</ShortName>
+					<Path>SFX\coin_1C9C67B2.wem</Path>
+				</File>
+				<File Id="622708026" Language="SFX">
+					<ShortName>roblox-death-sound_1.wav</ShortName>
+					<Path>SFX\roblox-death-sound_1_1C9C67B2.wem</Path>
+				</File>
+				<File Id="678328923" Language="SFX">
+					<ShortName>bloop.wav</ShortName>
+					<Path>SFX\bloop_1C9C67B2.wem</Path>
+				</File>
+			</IncludedMemoryFiles>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
