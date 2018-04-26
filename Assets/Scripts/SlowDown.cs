@@ -12,7 +12,7 @@ public class SlowDown : MonoBehaviour
       LogMover.setSpeed(0.5*speed);
       TerrainMover.setSpeed(0.5*speed);
       if(Time.time-timeStart > 10)
-      resetSpeed();
+         resetSpeed();
    }
 	
 
