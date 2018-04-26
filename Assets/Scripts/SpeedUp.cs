@@ -7,10 +7,10 @@ public class SpeedUp : MonoBehaviour
 	public static float speed = 50f;
         private void Start()
         {
-	   float timeStart = time;
+	   float timeStart = Time.time;
            GetComponent<Rigidbody>().velocity = transform.up * speed;
            setSpeed(2*getSpeed());
-           if(time-timeStart > 10)
+           if(Time.time-timeStart > 10)
 	      resetSpeed();
         }
 
