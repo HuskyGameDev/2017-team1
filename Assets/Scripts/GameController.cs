@@ -211,17 +211,13 @@ public class GameController : MonoBehaviour
 		
 	}
 
-	//called when the player grabs an hourglass powerup
-	public void SlowTime()
+	//called when the player collects a coin
+	public void AddScore()
 	{
-		Time.timeScale = 0.5f;
-		float timeLeft = 5;
-		while (timeLeft < 0) {
-			timeLeft -= Time.deltaTime;
-		}
-		Time.timeScale = 1.0f;
-		return;
+		score = score + 10*(int)Mathf.Pow(2, difficulty);
+
 	}
+		
 
     //updates the score over time
     IEnumerator ScoreDelay()
@@ -303,23 +299,15 @@ public class GameController : MonoBehaviour
 				xVal = 1;
 			}
 
+
+			GameObject[] terrain = GameObject.FindGameObjectsWithTag ("Terrain");
+			GameObject toSpawn = terrain[UnityEngine.Random.Range(0, terrain.Length)];
+			Vector3 defaultPosition = toSpawn.transform.position;
+
+			spawnPosition = new Vector3(xVal * defaultPosition.x, defaultPosition.y, defaultPosition.z + 365);
 			Quaternion spawnRotation = Quaternion.identity;
-			spawnRotation[0] = -1;
-
-			string tText = "";
-
-			float trand = UnityEngine.Random.Range(0, 4);
-			if (trand < 2) {
-				tText = "Terrain";
-				spawnPosition = new Vector3(xVal * treeSpawnValues.x, treeSpawnValues.y, treeSpawnValues.z);
-			} else {
-				tText = "Terrain1";
-				spawnPosition = new Vector3(xVal * rockSpawnValues.x, rockSpawnValues.y, rockSpawnValues.z);
-			}
-
-			terrain = GameObject.FindWithTag(tText);
-
-			Instantiate(terrain, spawnPosition, spawnRotation);
+			GameObject spawned = Instantiate(toSpawn, spawnPosition, spawnRotation);
+			spawned.tag = "Untagged";
 
 			tSpawnWait = UnityEngine.Random.Range(tSpawnWaitMin, tSpawnWaitMax);
 			yield return new WaitForSeconds(tSpawnWait);
@@ -339,7 +327,6 @@ public class GameController : MonoBehaviour
         while (true)
         {
             float xrand = UnityEngine.Random.Range(0, 4);
-            Debug.Log("xrand is " + xrand);
             float xValue;
             if (xrand < 2)
             {

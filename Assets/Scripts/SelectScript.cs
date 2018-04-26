@@ -30,7 +30,7 @@ public class SelectScript : MonoBehaviour
 	void Update () {
 		if(Input.GetAxisRaw("Vertical") != 0 && isSelected == false)
         {
-            eSystem.SetSelectedGameObject(objectSelected);
+           eSystem.SetSelectedGameObject(objectSelected);
             isSelected = true;
         }
 	}

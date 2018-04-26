@@ -17,6 +17,12 @@ public class PowMover : MonoBehaviour
 		}
 	}
 
+	public void Update()
+	{
+		if (GameController.gameOver)
+			GetComponent<Rigidbody>().velocity = Vector3.zero;
+	}
+
 	public static float getSpeed(){
 		return speed;
 	}

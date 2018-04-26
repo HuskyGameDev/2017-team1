@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/_Scenes/Dev_Noah.unity
     guid: 2aa2991a55d03a24d9d4fbe32fd61c53
-  - enabled: 0
+  - enabled: 1
+    path: Assets/_Scenes/mainmenu1.unity
+    guid: 02816b18086c7644f9c1ed032ee9dc37
+  - enabled: 1
     path: Assets/_Scenes/Dev_Vinc.unity
     guid: 0cbe1868ceecc5346937f9dac8774c7d
   - enabled: 0

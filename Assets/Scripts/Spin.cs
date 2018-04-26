@@ -10,6 +10,8 @@ public class Spin : MonoBehaviour
     
     void Update ()
     {
-        transform.Rotate(new Vector3(Time.deltaTime * degreesPerSecondx,Time.deltaTime * degreesPerSecondy ,Time.deltaTime * degreesPerSecondz), Space.World);
+		if (!(GameController.gameOver)) {
+			transform.Rotate (new Vector3 (Time.deltaTime * degreesPerSecondx, Time.deltaTime * degreesPerSecondy, Time.deltaTime * degreesPerSecondz), Space.World);
+		}
     }
 }
